@@ -21,7 +21,7 @@
 const Dados = (() => {
 
   /** "real" = conectado ao banco pelo servidor | "demo" = dados fictícios */
-  const MODO = location.protocol.startsWith("http") ? "real" : "demo";
+  const MODO = ["localhost", "127.0.0.1"].includes(location.hostname) ? "real" : "demo";
 
   /* ------------------------------------------------------------
      Registro de comandos: cada função informa o SQL equivalente,
