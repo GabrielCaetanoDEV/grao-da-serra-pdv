@@ -60,7 +60,3 @@ grao-da-serra-pdv/
 5. Abra **http://localhost:3000**. O selo verde "conectado · grao_da_serra" no canto da tela confirma a conexão.
 
 > Se abrir o `index.html` direto (sem o servidor), a tela roda em **modo demonstração**, com dados fictícios.
-
-## Descrição da conexão
-
-_(escrever aqui o parágrafo pedido no item 9 da atividade)_
