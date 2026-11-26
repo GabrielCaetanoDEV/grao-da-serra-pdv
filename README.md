@@ -60,3 +60,6 @@ grao-da-serra-pdv/
 5. Abra **http://localhost:3000**. O selo verde "conectado · grao_da_serra" no canto da tela confirma a conexão.
 
 > Se abrir o `index.html` direto (sem o servidor), a tela roda em **modo demonstração**, com dados fictícios.
+>
+> ## Web page 📶🌐
+> https://gabrielcaetanodev.github.io/grao-da-serra-pdv/
