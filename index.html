@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grão da Serra · PDV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <!-- ============================================================
+       Grão da Serra · PDV
+       Interface do sistema de pedidos (Questão 16)
+       Toda regra de negócio fica no banco; esta tela só exibe dados
+       e aciona as views/procedures através do módulo js/dados.js.
+       ============================================================ -->
+  <div class="app">
+
+    <!-- Barra lateral de navegação -->
+    <aside class="lateral">
+      <div class="marca">
+        <svg class="marca-logo" viewBox="0 0 40 40" aria-hidden="true">
+          <ellipse cx="20" cy="20" rx="12" ry="16" transform="rotate(28 20 20)" fill="currentColor"/>
+          <path d="M14 8 C 24 16, 16 24, 26 32" stroke="var(--fundo)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <strong>Grão da Serra</strong>
+          <span>Empório &amp; Café · PDV</span>
+        </div>
+      </div>
+
+      <nav class="menu" aria-label="Telas do sistema">
+        <button class="menu-item ativo" data-tela="balcao"><span class="ico">◉</span>Balcão<kbd>F1</kbd></button>
+        <button class="menu-item" data-tela="cardapio"><span class="ico">☰</span>Cardápio<kbd>F2</kbd></button>
+        <button class="menu-item" data-tela="pedidos"><span class="ico">▤</span>Pedidos<kbd>F3</kbd></button>
+        <button class="menu-item" data-tela="gerencia"><span class="ico">◆</span>Gerência<kbd>F4</kbd></button>
+      </nav>
+
+      <div class="lateral-rodape">
+        <div id="modo-conexao" class="selo-modo"></div>
+        <div id="relogio" class="relogio"></div>
+      </div>
+    </aside>
+
+    <!-- Área principal -->
+    <main class="principal">
+      <header class="topo">
+        <div>
+          <p class="topo-sub" id="topo-sub"></p>
+          <h1 id="topo-titulo"></h1>
+        </div>
+        <button class="btn-fantasma" id="btn-log" title="Mostrar comandos enviados ao banco">
+          <span class="pulso"></span> Registro do banco
+        </button>
+      </header>
+
+      <!-- Faixa de mensagens: local fixo e visível para os retornos do banco (SIGNAL) -->
+      <div id="faixa-mensagem" class="faixa" role="status" aria-live="polite" hidden></div>
+
+      <section id="tela" class="tela"></section>
+    </main>
+
+    <!-- Gaveta com o registro dos comandos SQL enviados -->
+    <aside id="gaveta-log" class="gaveta" aria-hidden="true">
+      <div class="gaveta-topo">
+        <strong>Registro do banco</strong>
+        <button class="btn-icone" id="fechar-log" aria-label="Fechar">✕</button>
+      </div>
+      <p class="gaveta-ajuda">Cada ação da tela vira um SELECT em view ou um CALL em procedure.</p>
+      <ol id="lista-log" class="lista-log"></ol>
+    </aside>
+  </div>
+
+  <!-- Janela de quantidade (adicionar produto) -->
+  <dialog id="dlg-qtd" class="dialogo">
+    <form method="dialog" id="form-qtd">
+      <p class="dialogo-cat" id="qtd-cat"></p>
+      <h3 id="qtd-nome"></h3>
+      <p class="dialogo-preco" id="qtd-preco"></p>
+      <div class="stepper">
+        <button type="button" data-passo="-1" aria-label="Diminuir">−</button>
+        <input type="number" id="qtd-valor" value="1" min="1" aria-label="Quantidade">
+        <button type="button" data-passo="1" aria-label="Aumentar">+</button>
+      </div>
+      <div class="dialogo-acoes">
+        <button value="cancelar" class="btn-fantasma" formnovalidate>Cancelar</button>
+        <button value="ok" class="btn-primario" id="qtd-ok">Adicionar ao pedido ↵</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="js/dados.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+SELECT * FROM vw_pedidos_detalhados WHERE status = 'ABERTO';

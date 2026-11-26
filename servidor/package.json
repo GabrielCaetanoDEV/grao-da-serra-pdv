@@ -1,0 +1,12 @@
+{
+  "name": "grao-da-serra-servidor",
+  "version": "1.0.0",
+  "description": "Programa intermediário Node.js entre a interface do Grão da Serra e o MySQL",
+  "main": "servidor.js",
+  "scripts": { "start": "node servidor.js" },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "mysql2": "^3.11.5"
+  }
+}

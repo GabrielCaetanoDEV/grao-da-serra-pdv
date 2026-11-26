@@ -1,0 +1,1 @@
+SELECT * FROM vw_vendas_por_categoria;
